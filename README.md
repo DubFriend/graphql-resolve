@@ -1,4 +1,4 @@
-# graphql-resolve-hook
+# graphql-resolve
 
 Hook into each resolve method on a GraphQL schema
 

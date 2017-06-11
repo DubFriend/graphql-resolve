@@ -3,7 +3,14 @@
 Hook into each resolve method on a GraphQL schema
 
 ```javascript
-import graphqlResolve, { defaultNext, promisifyNext } from 'graphql-resolve';
+import graphqlResolve, { promisifyNext, defaultNext } from 'graphql-resolve';
+import schema from './my-graphql-schema';
 
+const intercept = next => (p, a, c, ast) => {
+  return promisifyNext(next)(p, a, c, ast);
+};
 
+wrapResolve(schema, (field, type) => {
+  field.resolve = intercept(field.resolve || defaultNext);
+});
 ```

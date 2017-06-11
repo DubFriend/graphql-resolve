@@ -13,11 +13,7 @@ gulp.task(
 
 gulp.task(
   'test',
-  [
-    'transpile',
-    
-    
-  ],
+  ['transpile'],
   () => gulp.src([
     'src/**/test/**/*.unit.js',
     'src/**/test/**/*.e2e.js'

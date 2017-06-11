@@ -1,6 +1,6 @@
 {
   "name": "graphql-resolve",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Hook into each resolve method on a GraphQL schema",
   "main": "lib/index.js",
   "repository": {

@@ -6,11 +6,11 @@ Hook into each resolve method on a GraphQL schema
 import graphqlResolve, { promisifyNext, defaultNext } from 'graphql-resolve';
 import schema from './my-graphql-schema';
 
-const intercept = next => (p, a, c, ast) => {
-  return promisifyNext(next)(p, a, c, ast);
+const intercept = next => (parent, args, context, ast) => {
+  return promisifyNext(next)(parent, args, context, ast);
 };
 
-wrapResolve(schema, (field, type) => {
+graphqlResolve(schema, (field, type) => {
   field.resolve = intercept(field.resolve || defaultNext);
 });
 ```
